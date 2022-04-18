@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.questionapp.screens.QuestionHome
 import com.example.questionapp.ui.theme.QuestionAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,29 +34,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
-
-@Composable
-fun QuestionHome(viewModel: QuestionsViewModel= hiltViewModel()){
-    Questions(viewModel)
-}
-
-@Composable
-fun Questions(viewModel: QuestionsViewModel) {
-
-
-    val questions=viewModel.data.value.data?.toMutableList()
-    if(viewModel.data.value.loading==true){
-        //Log.d("Loading",".....")
-
-    }else{
-        //Log.d("Loading","done.")
-        questions?.forEach{questionItem ->
-            //Log.d("Result","Questions: ${questionItem.question}")
-        }
-    }
-
-
 }
 
 
